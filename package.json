@@ -1,0 +1,31 @@
+{
+  "name": "caching-playground",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Altitech-online/basicServer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Altitech-online/basicServer/issues"
+  },
+  "homepage": "https://github.com/Altitech-online/basicServer#readme",
+  "dependencies": {
+    "@hapi/hapi": "^20.1.2",
+    "@hapi/inert": "^6.0.3",
+    "aws-sdk": "^2.894.0",
+    "esm": "^3.2.25",
+    "node-cache": "^5.1.2",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0"
+  }
+}

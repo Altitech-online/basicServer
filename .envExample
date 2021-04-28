@@ -1,0 +1,6 @@
+CACHE_TABLE_NAME=cache_example
+QUOTE_STORE_TABLE_NAME=cache_store_example
+DAYS_TO_EXPIRE=30
+AWS_REGION=eu-west-2
+SERVER_PORT=8080
+SERVER_HOST=localhost
