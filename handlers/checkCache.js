@@ -2,7 +2,7 @@ import {v4} from 'uuid';
 import {getItem, putItem} from '../helpers/dynamo';
 import sortJsonObject from '../helpers/jsonSorter';
 import bigFatDelay from '../helpers/bigFatDelay';
-import { encryptString } from '../helpers/encrypt';
+// import { encryptString } from '../helpers/encrypt';
 import config from '../config';
 
 const twentyFourHours = 864e5;
@@ -13,9 +13,9 @@ export const checkCache = async (request) => {
     const {CACHE_TABLE_NAME, QUOTE_STORE_TABLE_NAME, DAYS_TO_EXPIRE} = config.get();
     const sortedBody = sortJsonObject(body);
     const bodyAsKey = JSON.stringify(sortedBody);
-    const encryptedBody = encryptString(bodyAsKey);
+    // const encryptedBody = encryptString(bodyAsKey);
     const itemKey = {
-        body: encryptedBody
+        body: bodyAsKey
     }
     const itemExists = await getItem(itemKey, CACHE_TABLE_NAME);
     if(itemExists) {
@@ -26,7 +26,7 @@ export const checkCache = async (request) => {
         const key = v4();
         const ttl = Math.round(new Date(Date.now() + (twentyFourHours * parseInt(DAYS_TO_EXPIRE))).getTime() / 1000)
         const cacheParams = {
-            body: encryptedBody,
+            body: bodyAsKey,
             key,
             ttl
         }
