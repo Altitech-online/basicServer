@@ -6,7 +6,10 @@ import config from './config';
 const {SERVER_HOST, SERVER_PORT} = config.get();
 const server = Hapi.server({
         port: SERVER_PORT,
-        host: SERVER_HOST
+        host: SERVER_HOST,
+        routes: {
+            cors: true
+        }
 });
      
 const init = async () => {
@@ -17,7 +20,6 @@ const init = async () => {
    await server.start();
    
    console.log(`Server running on ${SERVER_HOST} port ${SERVER_PORT}`);
-   
    server.route(handlers);
 }; 
 

@@ -9,7 +9,7 @@ const twentyFourHours = 864e5;
 
 export const checkCache = async (request) => {
     const { payload: {body} } = request;
-
+    console.log("started")
     const {CACHE_TABLE_NAME, QUOTE_STORE_TABLE_NAME, DAYS_TO_EXPIRE} = config.get();
     const sortedBody = sortJsonObject(body);
     const bodyAsKey = JSON.stringify(sortedBody);
@@ -46,6 +46,6 @@ export const checkCache = async (request) => {
 
 export default {
     method: 'post',
-    path: '/chache',
+    path: '/cache',
     handler: checkCache,
 }
